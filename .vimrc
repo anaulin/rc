@@ -11,9 +11,9 @@ set number              " show line numbers
 set ruler               " show the current row and column
 
 if has("gui_running")
-  set columns=210       " set column width, but only with gui
+  set columns=160       " set column width, but only with gui
 endif
-set textwidth=100
+set textwidth=79
 set tabstop=4           " size of a hard tabstop
 set shiftwidth=4        " indent width
 set expandtab           " uses spaces instead of tab characters
