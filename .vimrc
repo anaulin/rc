@@ -14,8 +14,8 @@ if has("gui_running")
   set columns=210       " set column width, but only with gui
 endif
 set textwidth=100
-set tabstop=2           " size of a hard tabstop
-set shiftwidth=2        " indent width
+set tabstop=4           " size of a hard tabstop
+set shiftwidth=4        " indent width
 set expandtab           " uses spaces instead of tab characters
 set guioptions-=r       " remove right scrollbar
 set guioptions-=L       " remove right scrollbar
