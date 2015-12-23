@@ -51,5 +51,8 @@ set shellcmdflag=-ic    " use interactive shell (to use aliases)
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
+" Statusline settings
+set laststatus=2  " always display status line
+
 " Default working directory
 cd ~/src/
