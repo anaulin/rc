@@ -1,9 +1,9 @@
 PS1="\u:\w $ "
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+### For access to Android tools
+export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 
 ### Git-related aliases
 alias gs='git status'
@@ -21,8 +21,5 @@ export HISTFILESIZE=100000
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -r; update_terminal_cwd;"
 
-# Search over codebase aliases
-alias grb='grep -r -n --color=auto --include "*rb"'  # grep over .rb and .erb files
-
-# added by travis gem
-[ -f /Users/anaulin/.travis/travis.sh ] && source /Users/anaulin/.travis/travis.sh
+# Colorize ls
+alias ls='ls -G'
