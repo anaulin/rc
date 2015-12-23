@@ -1,4 +1,11 @@
-PS1="\u:\w $ "
+# Add bash-completion (installed via 'brew install bash-completion')
+# Enables __git_ps1 function
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+# Created with help from http://ezprompt.net/
+export PS1="\[\e[32;40m\]\t\[\e[m\] \w\[\e[35m\]\`__git_ps1\`\[\e[m\] \$ "
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
