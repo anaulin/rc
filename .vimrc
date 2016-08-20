@@ -2,6 +2,17 @@
 
 set nocompatible        " use vim defaults
 
+"""
+" vim-plug configuration
+call plug#begin()
+
+" Add plugins here.
+Plug 'fatih/vim-go'  " https://github.com/fatih/vim-go
+
+call plug#end()
+" end vim-plug configuration
+"""
+
 set scrolloff=3         " keep 3 lines when scrolling
 set ai                  " set auto-indenting on for programming
 
@@ -13,9 +24,9 @@ set ruler               " show the current row and column
 if has("gui_running")
   set columns=160       " set column width, but only with gui
 endif
-set textwidth=79
-set tabstop=4           " size of a hard tabstop
-set shiftwidth=4        " indent width
+set textwidth=80
+set tabstop=2           " size of a hard tabstop
+set shiftwidth=2        " indent width
 set expandtab           " uses spaces instead of tab characters
 set guioptions-=r       " remove right scrollbar
 set guioptions-=L       " remove right scrollbar
@@ -50,9 +61,3 @@ set shellcmdflag=-ic    " use interactive shell (to use aliases)
 " Put swap and undo files out of the way
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
-
-" Statusline settings
-set laststatus=2  " always display status line
-
-" Default working directory
-cd ~/src/
