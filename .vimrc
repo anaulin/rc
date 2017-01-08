@@ -61,3 +61,14 @@ set shellcmdflag=-ic    " use interactive shell (to use aliases)
 " Put swap and undo files out of the way
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+
+" Search improvements (inspired by https://robots.thoughtbot.com/faster-grepping-in-vim)
+" Set up The Silver Searcher for better search
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" add Ag as a new search command that opens a quickfix window
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
