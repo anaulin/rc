@@ -8,6 +8,18 @@ call plug#begin()
 
 " Add plugins here.
 Plug 'fatih/vim-go'  " https://github.com/fatih/vim-go
+Plug 'tell-k/vim-autopep8'  " https://github.com/tell-k/vim-autopep8
+Plug 'nvie/vim-flake8'  " https://github.com/nvie/vim-flake8
+Plug 'vim-scripts/sort-python-imports'  " https://github.com/vim-scripts/sort-python-imports
+
+"""" Misc color themes
+" https://github.com/altercation/vim-colors-solarized
+Plug 'altercation/vim-colors-solarized'
+" https://github.com/dikiaap/minimalist
+Plug 'dikiaap/minimalist'
+" https://github.com/crusoexia/vim-monokai
+Plug 'crusoexia/vim-monokai'
+Plug 'jnurmine/Zenburn'
 
 call plug#end()
 " end vim-plug configuration
@@ -43,8 +55,8 @@ set novisualbell        " turn off visual bell
 set backspace=indent,eol,start  " make that backspace key work the way it should
 
 set bg=dark             " dark background
-colorscheme koehler
-set guifont=Monaco:h14
+colorscheme monokai
+set guifont=Menlo:h12
 
 syntax on               " turn syntax highlighting on by default
 filetype on             " detect type of file
@@ -72,3 +84,11 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " add Ag as a new search command that opens a quickfix window
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
+"--------- Python-specific configuration
+"
+" Call Autopep8 every time a file is saved
+autocmd BufWritePost *.py call Autopep8()
+au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
+
+" disable autopep8 showing diff
+let g:autopep8_disable_show_diff=1
