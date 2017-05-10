@@ -30,7 +30,7 @@ export HISTTIMEFORMAT='%F %T '
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 shopt -s histappend
-export PROMPT_COMMAND="history -a; history -r; update_terminal_cwd;"
+export PROMPT_COMMAND="history -a; history -r;"
 
 # Colorize ls
 alias ls='ls -G'
@@ -43,3 +43,5 @@ source '/Users/anaulin/google-cloud-sdk/completion.bash.inc'
 
 # Add env variables to connect to docker
 eval $(docker-machine env default)
+
+alias sm='open /Applications/Emacs.app'
