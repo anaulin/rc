@@ -16,5 +16,4 @@ do
 done
 
 # Custom git sync function that is expected to be in sourced .bashrc
-source .bashrc
 gas
