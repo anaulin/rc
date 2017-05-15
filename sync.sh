@@ -14,6 +14,3 @@ for file in "${dotfiles[@]}"
 do
     cp $file .
 done
-
-# Custom git sync function that is expected to be in sourced .bashrc
-gas
