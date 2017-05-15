@@ -45,3 +45,14 @@ source '/Users/anaulin/google-cloud-sdk/completion.bash.inc'
 eval $(docker-machine env default)
 
 alias sm='open /Applications/Emacs.app'
+
+# Simple Git auto-sync functionality.
+gas() {
+  echo "** Adding all and committing"
+  git add .
+  git commit -m "`date`"
+  echo "** Pushing, fetching and checking status"
+  git push -u
+  git fetch
+  git status
+}
