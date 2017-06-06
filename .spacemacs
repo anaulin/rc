@@ -318,6 +318,8 @@ you should place your code here."
       (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
   (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
+  (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+  (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
