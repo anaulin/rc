@@ -1,7 +1,7 @@
-# Add bash-completion (installed via 'brew install bash-completion')
-# Enables __git_ps1 function
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+# Enable __git_ps1 function, can be gotten via:
+# $ curl -L # https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+if [ -f ~/bin/git-prompt.sh ]; then
+  . ~/bin/git-prompt.sh
 fi
 
 # Created with help from http://ezprompt.net/
@@ -36,10 +36,10 @@ export PROMPT_COMMAND="history -a; history -r;"
 alias ls='ls -G'
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/anaulin/google-cloud-sdk/path.bash.inc'
+#source '/Users/anaulin/google-cloud-sdk/path.bash.inc'
 
 # The next line enables shell command completion for gcloud.
-source '/Users/anaulin/google-cloud-sdk/completion.bash.inc'
+#source '/Users/anaulin/google-cloud-sdk/completion.bash.inc'
 
 # Add env variables to connect to docker
 eval $(docker-machine env default)
@@ -48,6 +48,8 @@ alias sm='open /Applications/Emacs.app'
 
 # Simple Git auto-sync functionality.
 gas() {
+  echo "** Pulling and merging"
+  git pull --no-edit
   echo "** Adding all and committing"
   git add .
   git commit -m "`date`"
