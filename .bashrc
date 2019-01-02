@@ -42,7 +42,7 @@ source '/Users/anaulin/google-cloud-sdk/path.bash.inc'
 source '/Users/anaulin/google-cloud-sdk/completion.bash.inc'
 
 # Add env variables to connect to docker
-eval $(docker-machine env default)
+#eval $(docker-machine env default)
 
 alias em='open /Applications/Emacs.app'
 
@@ -70,3 +70,7 @@ $(docker images -q -f dangling=true)'
 
 # Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
+
+# Ruby stuff
+source /usr/local/share/chruby/chruby.sh
+chruby ruby-2.6
