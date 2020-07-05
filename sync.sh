@@ -7,7 +7,6 @@ declare -a dotfiles=(
     "$HOME/.bash_profile"
     "$HOME/.bashrc"
     "$HOME/.vimrc"
-    "$HOME/.emacs"
 )
 
 for file in "${dotfiles[@]}"

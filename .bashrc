@@ -48,7 +48,7 @@ alias dockerclean='dockercleanc || true && dockercleani'
 
 # Ruby stuff
 source /usr/local/share/chruby/chruby.sh
-chruby ruby-2.6.4  # default Ruby version
+chruby ruby-2.7.1  # default Ruby version
 alias bex='bundle exec '
 
 # Helper to free a port that's in use
@@ -56,6 +56,19 @@ function free_port() {
   lsof -ti :$1 | xargs kill -9
 }
 export -f free_port
+
+# Helper to enable the .venv in the current directory
+# Code borrowed and adapted from https://gist.github.com/codysoyland/2198913
+function activate_venv() {
+  _VENV_NAME=$(basename `pwd`)
+  echo Activating virtualenv \"$_VENV_NAME\"...
+  VIRTUAL_ENV_DISABLE_PROMPT=1
+  source .venv/bin/activate
+  _OLD_VIRTUAL_PS1="$PS1"
+  PS1="($_VENV_NAME) $PS1"
+  export PS1
+}
+export -f activate_env
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/anaulin/bin/google-cloud-sdk/path.bash.inc' ]; then . '/Users/anaulin/bin/google-cloud-sdk/path.bash.inc'; fi
