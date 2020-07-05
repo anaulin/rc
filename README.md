@@ -1,4 +1,12 @@
 rc
 ==
 
-Various personal shell / editor / other config files.
+Various personal config files.
+
+To sync files from current machine to this repo, run:
+
+```bash
+$ ./sync.sh
+```
+
+
