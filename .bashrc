@@ -68,10 +68,15 @@ function activate_venv() {
   PS1="($_VENV_NAME) $PS1"
   export PS1
 }
-export -f activate_env
+export -f activate_venv
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/anaulin/bin/google-cloud-sdk/path.bash.inc' ]; then . '/Users/anaulin/bin/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/anaulin/bin/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/anaulin/bin/google-cloud-sdk/completion.bash.inc'; fi
+
+# Poetry stuff
+# install: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
+export PATH="$HOME/.poetry/bin:$PATH"
+source $HOME/.poetry/env
