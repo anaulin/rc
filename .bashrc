@@ -79,4 +79,11 @@ if [ -f '/Users/anaulin/bin/google-cloud-sdk/completion.bash.inc' ]; then . '/Us
 # Poetry stuff
 # install: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
 export PATH="$HOME/.poetry/bin:$PATH"
-source $HOME/.poetry/env
+#source $HOME/.poetry/env
+
+# direnv hook
+eval "$(direnv hook bash)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
