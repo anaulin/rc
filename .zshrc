@@ -1,5 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/anaulin/.oh-my-zsh"
+# For GPG commit signing to work
+export GPG_TTY=$(tty)
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -97,12 +99,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+### NVM config
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 ### Git-related aliases
 alias gs='git status'
 alias gb='git branch'
-alias gc='git commit -a'
+alias gc='git commit'
 alias gk='git checkout'
 alias gp='git push -u origin HEAD'
+alias gap='git add -p'
+alias gri='git rebase -i'
 alias gcleanup="git branch --merged | grep -v '\*' | xargs -n 1 git branch -d"
 
 # Colorize ls
@@ -110,6 +118,22 @@ alias ls='ls -G'
 
 # Add env variables to connect to docker
 #eval $(docker-machine env default)
+
+# Docker aliases
+alias d=docker $1
+alias dc=docker-compose $1
+alias dclean="docker rmi $(docker images | grep '^<none>' | awk '{printf "%s ", $3}') -f"
+alias dcd="docker-compose down"
+alias dcenv=docker-compose --file .docker-compose-devenv.yml $1
+alias dcr="docker-compose run --rm $1"
+alias dcra="dcr app $1"
+alias dcrabe="dcr app bundle exec $1"
+alias dcrf="dcr frontend $1"
+alias dcrsh="dcr --entrypoint sh $1"
+alias dcu="docker-compose up $1"
+alias dcua="docker-compose up app $1"
+alias dcuf="dcu frontend $1"
+alias dcrspec="dcra bundle exec rspec $1"
 
 ### Docker cleanup aliases. From https://www.calazan.com/docker-cleanup-commands/
 # Delete all stopped containers.
@@ -127,3 +151,15 @@ alias bex='bundle exec '
 
 # Direnv hook
 eval "$(direnv hook zsh)"
+
+# Chruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+alias chrub='chruby `cat .ruby-version`'
+
+# For connecting to Postgres
+export PGHOST=localhost
+export PGUSER=postgres
+export PGPASSWORD=password
+
+# For Pipenv
+export PIPENV_VENV_IN_PROJECT=1
